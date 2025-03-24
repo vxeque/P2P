@@ -58,10 +58,6 @@ dotnet run
 - Compresión: Rust
 - Base de Datos: [Especificar DB]
 
-## Licencia
-
-[Especificar tipo de licencia]
-
 ## Contribución
 
 1. Fork el proyecto
