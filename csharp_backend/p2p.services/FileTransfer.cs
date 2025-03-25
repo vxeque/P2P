@@ -1,10 +1,7 @@
-using System;
-using System.IO;
 using System.Net;
 using System.Net.Sockets;
 using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
+
 
 namespace p2p.services
 {
@@ -14,13 +11,13 @@ namespace p2p.services
         private readonly IPAddress? _localIp;
         private TcpListener? _listener;
         private bool _disposed;
-
+             
         // properties to access the port and local IP
         public int Port { get; set; }
 
         // properties to access the port and local IP
         public IPAddress? LocalIp { get; set; }
-        
+             
         // Método para enviar archivo de forma asíncrona
         public async Task SendFileAsync(string filePath, string destinationIp, 
             IProgress<int>? progress = null, CancellationToken cancellationToken = default)
