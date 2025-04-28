@@ -1,0 +1,43 @@
+---
+import "@styles/global.css";
+import Getfile from "./Getfile.astro";
+---
+
+<div id="container" class="overflow-auto top-0 left-0 w-screen h-screen flex items-center justify-center">
+  <main>
+    <section>
+      <h1 class="title">File transfer</h1>
+    </section>
+
+    <section>
+      <Getfile />
+    </section>
+  </main>
+</div>
+
+<style>
+  /* #container {
+    display: flex;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+  }  */
+  
+  .title {
+    color: white;
+  }
+
+  section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    padding: 1rem;
+  }
+
+  h1 {
+    font-size: 2rem;
+  }
+
+</style>

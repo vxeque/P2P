@@ -1,0 +1,77 @@
+<div class="container mx-auto flex flex-col items-center justify-center">
+  <div class="flex flex-row items-center justify-center gap-2">
+    <label
+      for="file-upload"
+      class="flex items-center gap-2 cursor-pointer bg-blue-800 text-white px-4 py-2 rounded-lg hover:bg-blue-600"
+    >
+      📂 Select a File
+    </label>
+
+    <label
+      for="folderInput"
+      class="flex items-center gap-2 cursor-pointer bg-blue-800 text-white px-4 py-2 rounded-lg hover:bg-blue-600"
+    >
+      📂 Select Folder
+    </label>
+    <input
+      type="file"
+      id="folderInput"
+      multiple
+      data-webkitdirectory
+      class="hidden"
+    />
+  </div>
+
+  <input id="file-upload" type="file" class="hidden" />
+
+  <p id="file-name" class="text-gray-500 text-sm select-none mb-5 mt-5">
+    No files selected
+  </p>
+
+  <p
+    class="py-2 px-6 rounded-lg m-3 flex justify-center cursor-pointer"
+    id="send-file"
+  >
+    Send to device
+  </p>
+
+  <img
+    src="/arrow-down.svg"
+    class="rounded-full bg-amber-600 p-1 justify-center items-center flex"
+  />
+
+  <p class="p-2">linux : 192.123.3.3</p>
+</div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    // Usamos aserción de tipo para HTMLInputElement y verificamos que no sea null
+    const input = document.getElementById(
+      "file-upload"
+    ) as HTMLInputElement | null;
+    const fileNameDisplay = document.getElementById("file-name");
+
+    // Verificamos que ambos elementos existen
+    if (!input || !fileNameDisplay) {
+      console.error("No se encontraron los elementos requeridos");
+      return;
+    }
+
+    input.addEventListener("change", () => {
+      // files siempre existe en HTMLInputElement cuando type="file"
+      const file = input.files?.[0]; // Uso del operador opcional ?
+      fileNameDisplay.textContent = file
+        ? file.name
+        : "No se seleccionó ningún archivo";
+    });
+  });
+</script>
+
+<style>
+  #send-file {
+    background-color: var(--darkreader-background-7f5af0, #2e0d92);
+  }
+  #send-file:hover {
+    background-color: #774ef5;
+  }
+</style>

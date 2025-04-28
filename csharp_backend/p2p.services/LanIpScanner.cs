@@ -2,11 +2,13 @@
 using System.Net.Sockets;
 using System.Net.NetworkInformation;
 using System.Threading.Channels;
+using System.Security.Cryptography.X509Certificates;
 
 namespace p2p.services;
 
 public class LanIpScanner
 {
+
   // method to obtain the local IP address
   public string GetIpLocal()
   {
@@ -58,8 +60,11 @@ public class LanIpScanner
     }
 
     await Task.WhenAll(tasks);
+
     return devices;
   }
+
+
 
   private static async Task<(string ipAddress, string hostName)> ProcessIpAsync(
       string ipAddress,

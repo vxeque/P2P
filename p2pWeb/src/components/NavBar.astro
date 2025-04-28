@@ -1,0 +1,67 @@
+---
+import "@styles/global.css";
+---
+
+<nav class="fixed top-0 left-0 w-full bg-white z-50">
+  <!-- Link normal -->
+  <a href="/" class="relative group pl-4">
+    <span
+      class="absolute left-0 top-1/2 -translate-y-1/2 h-4 w-1 bg-blue-500 rounded"
+    ></span>
+    Home
+    <span
+      class="absolute left-0 bottom-0 h-0.5 w-0 bg-blue-500 transition-all duration-300 group-hover:w-full"
+    ></span>
+  </a>
+
+  <a href="/#" class="relative group pl-4">
+    <!-- Separador vertical -->
+    <span
+      class="absolute left-0 top-1/2 -translate-y-1/2 h-4 w-1 bg-blue-500 rounded"
+    ></span>
+    About
+    <!-- Línea inferior animada -->
+    <span
+      class="absolute left-0 bottom-0 h-0.5 w-0 bg-blue-500 transition-all duration-300 group-hover:w-full"
+    ></span>
+  </a>
+
+  <a href="/#" class="relative group pl-4">
+    <!-- Separador vertical -->
+    <span
+      class="absolute left-0 top-1/2 -translate-y-1/2 h-4 w-1 bg-blue-500 rounded"
+    ></span>
+    languages
+    <!-- Línea inferior animada -->
+    <span
+      class="absolute left-0 bottom-0 h-0.5 w-0 bg-blue-500 transition-all duration-300 group-hover:w-full"
+    ></span>
+  </a>
+
+  <!-- Otro link -->
+  <a href="/devices" class="relative group pl-4">
+    <!-- Separador vertical -->
+    <span
+      class="absolute left-0 top-1/2 -translate-y-1/2 h-4 w-1 bg-blue-500 rounded"
+    ></span>
+    Network
+    <!-- Línea inferior animada -->
+    <span
+      class="absolute left-0 bottom-0 h-0.5 w-0 bg-blue-500 transition-all duration-300 group-hover:w-full"
+    ></span>
+  
+</nav>
+
+<style>
+  nav {
+    display: flex;
+    justify-content: right;
+    padding: 0 2rem;
+    background-color: black;
+  }
+
+  nav a {
+    font-size: medium;
+    padding: 1rem;
+  }
+</style>

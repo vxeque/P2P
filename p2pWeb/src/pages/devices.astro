@@ -1,0 +1,67 @@
+---
+import Layout from "../layouts/Layout.astro";
+
+const URL_GET = import.meta.env.PUBLIC_URL;
+
+---
+
+<Layout
+  title="Dispositivos"
+  description="Dispositivos de la aplicación"
+  class="bg-gray-100"
+>
+  <div class="container px-20 m-20">
+    <div>
+      <h1 class="text-3xl font-bold">Dispositivos</h1>
+      <p class="text-gray-700 my-7">
+        Aquí puedes ver y gestionar los dispositivos conectados a tu cuenta.
+      </p>
+    </div>
+
+    <!-- Contenedor para los dispositivos (se llenará con JavaScript) -->
+    <div
+      id="devices-container"
+      class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4"
+    >
+    </div>
+  </div>
+
+  <!-- Script que se ejecuta en el cliente -->
+  <script>
+    const URL = `${import.meta.env.PUBLIC_URL}`;
+
+    interface Device {
+      deviceName: string;
+      deviceType: string;
+      deviceIp: string;
+    }
+    async function loadDevices() {
+      // console.log("URL:", URL);
+
+      try {
+        const response = await fetch(URL);
+        const devices: Device[] = await response.json();
+
+        const container = document.getElementById(
+          "devices-container"
+        ) as HTMLDivElement;
+        container.innerHTML = devices
+          .map(
+            (device) => `
+          <div class="bg-blue-500 p-4 rounded shadow hover:bg-blue-600 transition duration-300 cursor-pointer grid">
+            <p>Name: ${device.name}</p>
+            <p>Device: ${device.ip}</p>
+            <p>SO: ${device.osType}</p>
+          </div>
+        `
+          )
+          .join("");
+      } catch (error) {
+        console.error("Error loading devices:", error);
+      }
+    }
+
+    // // Ejecutar cuando la página cargue
+    window.addEventListener("load", loadDevices);
+  </script>
+</Layout>

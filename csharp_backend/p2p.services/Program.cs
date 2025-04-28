@@ -15,6 +15,7 @@ class Program
         LanIpScanner lanIpScanner = new LanIpScanner();
 
         fileTransfer.Port = 8080;
+
         fileTransfer.LocalIp = IPAddress.Any;
 
         Console.WriteLine($"Dirección de ip de la maquina local: {lanIpScanner.GetIpLocal()}");
@@ -26,7 +27,16 @@ class Program
         {
             Console.WriteLine($"IP: {device.ip} | Nombre: {device.name} | SO: {device.osType}");
         }
-
-        // devices.ForEach(device => Console.WriteLine($"IP: {device.ipAddress}, Hostname: {device.hostname}"));
     }
 }
+
+
+
+
+
+
+
+
+
+
+

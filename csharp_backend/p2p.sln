@@ -3,38 +3,35 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "p2p.core", "p2p.core\p2p.core.csproj", "{E01D5D25-7351-4148-9961-602CCB6F419F}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorApp1", "BlazorApp1\BlazorApp1.csproj", "{9FDF4108-2479-409A-8E2D-3F2349C42F0C}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "p2p.web", "p2p.web\p2p.web.csproj", "{C7874E4A-C54A-4FB9-8C22-95F1743288BD}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "p2p.services", "p2p.services\p2p.services.csproj", "{8F8EC460-2912-4B24-9246-3FEF1DC3A2A3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "p2p.api", "p2p.api\p2p.api.csproj", "{8DA1BE6F-E3E0-49CD-B9AF-58D408ED839A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "p2p.models", "p2p.Models\p2p.models.csproj", "{6F8502B5-5963-4A5E-AEA0-05BF9AFE709E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
-	GlobalSection(SolutionProperties) = preSolution
-		HideSolutionNode = FALSE
-	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{E01D5D25-7351-4148-9961-602CCB6F419F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{E01D5D25-7351-4148-9961-602CCB6F419F}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{E01D5D25-7351-4148-9961-602CCB6F419F}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{E01D5D25-7351-4148-9961-602CCB6F419F}.Release|Any CPU.Build.0 = Release|Any CPU
-		{9FDF4108-2479-409A-8E2D-3F2349C42F0C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{9FDF4108-2479-409A-8E2D-3F2349C42F0C}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{9FDF4108-2479-409A-8E2D-3F2349C42F0C}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{9FDF4108-2479-409A-8E2D-3F2349C42F0C}.Release|Any CPU.Build.0 = Release|Any CPU
-		{C7874E4A-C54A-4FB9-8C22-95F1743288BD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{C7874E4A-C54A-4FB9-8C22-95F1743288BD}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{C7874E4A-C54A-4FB9-8C22-95F1743288BD}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{C7874E4A-C54A-4FB9-8C22-95F1743288BD}.Release|Any CPU.Build.0 = Release|Any CPU
 		{8F8EC460-2912-4B24-9246-3FEF1DC3A2A3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{8F8EC460-2912-4B24-9246-3FEF1DC3A2A3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8F8EC460-2912-4B24-9246-3FEF1DC3A2A3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8F8EC460-2912-4B24-9246-3FEF1DC3A2A3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8DA1BE6F-E3E0-49CD-B9AF-58D408ED839A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8DA1BE6F-E3E0-49CD-B9AF-58D408ED839A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8DA1BE6F-E3E0-49CD-B9AF-58D408ED839A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8DA1BE6F-E3E0-49CD-B9AF-58D408ED839A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6F8502B5-5963-4A5E-AEA0-05BF9AFE709E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6F8502B5-5963-4A5E-AEA0-05BF9AFE709E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6F8502B5-5963-4A5E-AEA0-05BF9AFE709E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6F8502B5-5963-4A5E-AEA0-05BF9AFE709E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {980E6648-6905-471E-A243-9E69DC1A6A7D}
 	EndGlobalSection
 EndGlobal

@@ -1,0 +1,6 @@
+@p2p.api_HostAddress = http://localhost:5172
+
+GET {{p2p.api_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
