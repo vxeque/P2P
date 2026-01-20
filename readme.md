@@ -119,7 +119,7 @@ P2PV4 es una **solución de transferencia de archivos peer-to-peer** que permite
 ┌─────────────────────────────────────────────────────────────────────┐
 │ PASO 1: DESCUBRIMIENTO DE DISPOSITIVOS                              │
 ├─────────────────────────────────────────────────────────────────────┤
-│                                                                       │
+│                  d                                                     │
 │  Peer A                        Peer B                                 │
 │  ┌──────────────┐             ┌──────────────┐                      │
 │  │ LanIpScanner │────────────►│ Escucha      │                      │
