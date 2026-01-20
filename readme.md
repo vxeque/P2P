@@ -38,7 +38,7 @@ P2P es una **solución de transferencia de archivos peer-to-peer** que permite c
 
 ---
 
-## ✨ Características
+##  Características
 
 -  Descubrimiento automático de dispositivos en LAN (192.168.x.x)
 -  Transferencia de archivos P2P sin servidor central
@@ -162,7 +162,7 @@ cd rust_compressor
 cargo build --release
 ```
 
-### 4️⃣ Frontend Astro (Opcional)
+### Frontend Astro (Opcional)
 
 ```bash
 cd p2pWeb
