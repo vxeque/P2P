@@ -2,7 +2,7 @@
 
 Sistema peer-to-peer (P2P) de alto rendimiento que implementa transferencia segura de archivos entre dispositivos en la red local, con un backend robusto en C# (.NET 10+ y .NET 8) y un componente optimizado de compresión en Rust.
 
-## 📋 Tabla de Contenidos
+## Tabla de Contenidos
 
 - [Descripción General](#descripción-general)
 - [Características](#características)
@@ -16,7 +16,7 @@ Sistema peer-to-peer (P2P) de alto rendimiento que implementa transferencia segu
 
 ---
 
-## 📌 Descripción General
+##  Descripción General
 
 ### ¿Qué hace este proyecto?
 
@@ -24,34 +24,34 @@ P2P es una **solución de transferencia de archivos peer-to-peer** que permite c
 
 ### ¿Para qué sirve?
 
-✅ **Compartir archivos entre dispositivos** sin servidores centralizados  
-✅ **Escaneo automático de dispositivos** en la red local  
-✅ **API REST moderna** para integración con otras aplicaciones  
-✅ **Interfaz web responsive** construida con Astro  
+ **Compartir archivos entre dispositivos** sin servidores centralizados  
+ **Escaneo automático de dispositivos** en la red local  
+ **API REST moderna** para integración con otras aplicaciones  
+ **Interfaz web responsive** construida con Astro  
 
 ### Ventajas
 
-- 🚀 **Rápido**: Transferencia directa peer-to-peer sin intermediarios
-- 🔒 **Seguro**: Comunicación local sin exposición a internet
-- 🎯 **Multiplataforma**: Soporta Windows, Linux y macOS
-- 🌐 **Moderno**: Backend .NET 10 y frontend Astro
+-  **Rápido**: Transferencia directa peer-to-peer sin intermediarios
+-  **Seguro**: Comunicación local sin exposición a internet
+-  **Multiplataforma**: Soporta Windows, Linux y macOS
+-  **Moderno**: Backend .NET 10 y frontend Astro
 
 ---
 
 ## ✨ Características
 
-- ✅ Descubrimiento automático de dispositivos en LAN (192.168.x.x)
-- ✅ Transferencia de archivos P2P sin servidor central
-- ✅ Detección de sistema operativo de dispositivos remotos
-- ✅ Puerto configurable (por defecto 8080)
-- ✅ API REST completa con documentación Swagger
-- ✅ Compresión de archivos integrada (Rust)
-- ✅ Interfaz web moderna y responsiva
-- ✅ Gestión de dispositivos conectados
+-  Descubrimiento automático de dispositivos en LAN (192.168.x.x)
+-  Transferencia de archivos P2P sin servidor central
+-  Detección de sistema operativo de dispositivos remotos
+-  Puerto configurable (por defecto 8080)
+-  API REST completa con documentación Swagger
+-  Compresión de archivos integrada (Rust)
+-  Interfaz web moderna y responsiva
+-  Gestión de dispositivos conectados
 
 ---
 
-## 📁 Estructura del Proyecto
+##  Estructura del Proyecto
 
 ```
 P2P/
@@ -87,7 +87,7 @@ P2P/
 
 ---
 
-## 🔧 Requisitos Previos
+##  Requisitos Previos
 
 Antes de instalar, asegúrate de tener:
 
@@ -101,16 +101,16 @@ Antes de instalar, asegúrate de tener:
 
 ---
 
-## 📦 Instalación
+##  Instalación
 
-### 1️⃣ Clonar el Repositorio
+###  Clonar el Repositorio
 
 ```bash
 git clone https://github.com/tu-usuario/p2p.git
 cd p2p
 ```
 
-### 2️⃣ Backend C# (.NET)
+###  Backend C# (.NET)
 
 #### Instalación de .NET
 
@@ -146,7 +146,7 @@ cd p2p.api
 dotnet ef database update
 ```
 
-### 3️⃣ Componente Rust (Compresión)
+### Componente Rust (Compresión)
 
 #### Instalación de Rust
 
@@ -178,7 +178,7 @@ npm run dev
 
 ---
 
-## 🚀 Uso Básico
+##  Uso Básico
 
 ### Iniciar el Servidor Backend
 
@@ -313,7 +313,7 @@ fileTransfer.LocalIp = IPAddress.Any;
 
 ---
 
-## ⚙️ Configuración
+##  Configuración
 
 ### Archivo appsettings.json (Backend)
 
@@ -346,7 +346,7 @@ P2P_PORT=8080
 
 ---
 
-## 🔌 API REST
+##  API REST
 
 ### Endpoints Disponibles
 
@@ -361,13 +361,13 @@ P2P_PORT=8080
 
 ---
 
-## 📄 Licencia
+##  Licencia
 
 Este proyecto está bajo licencia MIT. Ver archivo [LICENCE](./LICENCE) para más detalles.
 
 ---
 
-## 📧 Contacto
+##  Contacto
 
 Para preguntas o soporte, abre un issue en el repositorio.
 
