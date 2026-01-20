@@ -52,7 +52,11 @@ P2PV4 es una **solución de transferencia de archivos peer-to-peer** que permite
 
 ---
 
+<<<<<<< HEAD
 ##  Arquitectura del Sistema
+=======
+##  Características
+>>>>>>> 8ffad69d0a8abce89f9f189270b27c123d20d593
 
 ### Diagrama de Arquitectura
 
@@ -440,7 +444,11 @@ cd ../rust_compressor
 cargo build --release
 ```
 
+<<<<<<< HEAD
 ###  Frontend Astro (Opcional)
+=======
+### Frontend Astro (Opcional)
+>>>>>>> 8ffad69d0a8abce89f9f189270b27c123d20d593
 
 ```bash
 cd p2pWeb
