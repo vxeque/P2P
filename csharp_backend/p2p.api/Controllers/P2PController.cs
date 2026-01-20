@@ -10,19 +10,30 @@ using p2p.services;
 
 namespace p2p.api.Controllers
 {
+    /// <summary>
+    /// Controlador API para gestionar elementos y dispositivos P2P.
+    /// Proporciona endpoints REST para operaciones CRUD sobre dispositivos P2P.
+    /// </summary>
     [Route("api/[controller]")]
     [ApiController]
     public class P2PController : ControllerBase
     {
         private readonly P2PContext _context;
 
-
+        /// <summary>
+        /// Inicializa una nueva instancia del controlador P2PController.
+        /// </summary>
+        /// <param name="context">El contexto de base de datos P2P inyectado por dependencia.</param>
         public P2PController(P2PContext context)
         {
             _context = context;
         }
 
-        // GET: api/P2P
+        /// <summary>
+        /// Obtiene la lista completa de todos los elementos P2P registrados.
+        /// </summary>
+        /// <returns>Una lista de objetos <see cref="P2PItems"/> de la base de datos.</returns>
+        /// <response code="200">Retorna la lista de elementos P2P.</response>
         [HttpGet]
         public async Task<ActionResult<IEnumerable<P2PItems>>> GetP2PItems()
         {
@@ -30,6 +41,15 @@ namespace p2p.api.Controllers
         }
 
         
+        /// <summary>
+        /// Escanea y obtiene la lista de dispositivos disponibles en la red local.
+        /// </summary>
+        /// <returns>Una colección anónima de dispositivos con propiedades ip, name y osType.</returns>
+        /// <response code="200">Retorna la lista de dispositivos encontrados en la red.</response>
+        /// <remarks>
+        /// Este endpoint utiliza el escáner universal de dispositivos para descubrir
+        /// todos los hosts disponibles en la red local.
+        /// </remarks>
         [HttpGet("devices")]
         public async Task<IActionResult> GetDevices()
         {
@@ -56,7 +76,13 @@ namespace p2p.api.Controllers
         //    //return await _context.P2PItems.ToListAsync();
         // }
 
-        // GET: api/P2P/5
+        /// <summary>
+        /// Obtiene un elemento P2P específico por su identificador.
+        /// </summary>
+        /// <param name="id">El identificador único del elemento P2P a recuperar.</param>
+        /// <returns>El objeto <see cref="P2PItems"/> si existe; de lo contrario, NotFound.</returns>
+        /// <response code="200">Retorna el elemento P2P encontrado.</response>
+        /// <response code="404">Si el elemento P2P con el id especificado no existe.</response>
         [HttpGet("{id}")]
         public async Task<ActionResult<P2PItems>> GetP2PItems(string id)
         {
@@ -70,8 +96,18 @@ namespace p2p.api.Controllers
             return p2PItems;
         }
 
-        // PUT: api/P2P/5
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
+        /// <summary>
+        /// Actualiza un elemento P2P existente.
+        /// </summary>
+        /// <param name="id">El identificador único del elemento P2P a actualizar.</param>
+        /// <param name="p2PItems">El objeto <see cref="P2PItems"/> con los datos actualizados.</param>
+        /// <returns>NoContent si la actualización es exitosa; BadRequest si los ids no coinciden; NotFound si el elemento no existe.</returns>
+        /// <response code="204">Si la actualización fue exitosa.</response>
+        /// <response code="400">Si el id de la URL no coincide con el id del objeto.</response>
+        /// <response code="404">Si el elemento P2P con el id especificado no existe.</response>
+        /// <remarks>
+        /// Para proteger contra ataques de overposting, vea https://go.microsoft.com/fwlink/?linkid=2123754
+        /// </remarks>
         [HttpPut("{id}")]
         public async Task<IActionResult> PutP2PItems(string id, P2PItems p2PItems)
         {
@@ -101,8 +137,17 @@ namespace p2p.api.Controllers
             return NoContent();
         }
 
-        // POST: api/P2P
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
+        /// <summary>
+        /// Crea un nuevo elemento P2P en la base de datos.
+        /// </summary>
+        /// <param name="p2PItems">El objeto <see cref="P2PItems"/> a crear. Si no tiene Id, se genera automáticamente.</param>
+        /// <returns>El objeto <see cref="P2PItemsDto"/> creado con código 201 (Created).</returns>
+        /// <response code="201">Si el elemento P2P fue creado exitosamente.</response>
+        /// <response code="409">Si ya existe un elemento con el mismo Id (Conflict).</response>
+        /// <remarks>
+        /// Si el elemento P2P no tiene un Id, se genera automáticamente con formato timestamp-GUID.
+        /// Para proteger contra ataques de overposting, vea https://go.microsoft.com/fwlink/?linkid=2123754
+        /// </remarks>
         [HttpPost]
         //public async Task<ActionResult<P2PItems>> PostP2PItems(P2PItems p2PItems)
         public async Task<ActionResult<P2PItemsDto>> PostP2PItems(P2PItems p2PItems)
@@ -142,7 +187,13 @@ namespace p2p.api.Controllers
             return CreatedAtAction("GetP2PItems", new { id = p2PItems.Id }, dto);
         }
 
-        // DELETE: api/P2P/5
+        /// <summary>
+        /// Elimina un elemento P2P específico de la base de datos.
+        /// </summary>
+        /// <param name="id">El identificador único del elemento P2P a eliminar.</param>
+        /// <returns>NoContent si la eliminación es exitosa; NotFound si el elemento no existe.</returns>
+        /// <response code="204">Si la eliminación fue exitosa.</response>
+        /// <response code="404">Si el elemento P2P con el id especificado no existe.</response>
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteP2PItems(string id)
         {
@@ -158,6 +209,11 @@ namespace p2p.api.Controllers
             return NoContent();
         }
 
+        /// <summary>
+        /// Verifica si existe un elemento P2P con el identificador especificado.
+        /// </summary>
+        /// <param name="id">El identificador único a verificar.</param>
+        /// <returns>Verdadero si el elemento existe; falso en caso contrario.</returns>
         private bool P2PItemsExists(string id)
         {
             return _context.P2PItems.Any(e => e.Id == id);
