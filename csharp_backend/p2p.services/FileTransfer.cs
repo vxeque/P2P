@@ -10,20 +10,17 @@ namespace p2p.services
     /// </summary>
     public class FileTransfer
     {
-        private readonly int _port; 
-        private readonly IPAddress _localIp;
         private TcpListener? _listener;
-        private bool _disposed;
 
         /// <summary>
         /// Obtiene o establece el puerto TCP utilizado para la transferencia de archivos.
         /// </summary>
-        public int Port { get; set; }
+        public int Port { get; set; } = 8080;
 
         /// <summary>
         /// Obtiene o establece la dirección IP local donde se escucharán las conexiones entrantes.
         /// </summary>
-        public IPAddress? LocalIp { get; set; }
+        public IPAddress? LocalIp { get; set; } = IPAddress.Any;
 
         /// <summary>
         /// Inicializa una nueva instancia de la clase FileTransfer con configuración predeterminada.
@@ -31,10 +28,24 @@ namespace p2p.services
         /// </summary>
         public FileTransfer()
         {
-            _port = 8080;
-            _localIp = IPAddress.Any;
+            try
+            {
+                var hostEntry = Dns.GetHostEntry(Dns.GetHostName());
+                var ipv4Address =  hostEntry.AddressList.FirstOrDefault(ip => ip.AddressFamily == AddressFamily.InterNetwork && !IPAddress.IsLoopback(ip));
+
+                LocalIp = ipv4Address ?? IPAddress.Loopback;
+            }   
+            catch
+            {
+                LocalIp = IPAddress.Any; 
+            }
         }
-        
+
+        /// <summary>
+        /// optentenemos lo necesario para la transferencia
+        /// </summary>
+
+
         /// <summary>
         /// Envía un archivo de forma asíncrona a un dispositivo remoto especificado.
         /// Se utiliza para transferir archivos desde este dispositivo hacia otro en la red.
@@ -49,7 +60,7 @@ namespace p2p.services
             try
             {
                 using var client = new TcpClient();
-                await client.ConnectAsync(destinationIp, _port, cancellationToken);
+                await client.ConnectAsync(destinationIp, Port, cancellationToken);
 
                 using var stream = client.GetStream();
                 var fileName = Path.GetFileName(filePath);
@@ -83,7 +94,7 @@ namespace p2p.services
         {
             try
             {
-                _listener = new TcpListener(_localIp, _port);
+                _listener = new TcpListener(LocalIp ?? IPAddress.Any, Port);
                 _listener.Start();
                 Console.WriteLine("Esperando conexión...");
 

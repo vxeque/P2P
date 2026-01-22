@@ -12,21 +12,26 @@ public class LanIpScanner
   // method to obtain the local IP address
   public string GetIpLocal()
   {
-    var host = Dns.GetHostEntry(Dns.GetHostName());
-
-    Console.WriteLine($"Local  ip: {host.AddressList[0]}");
-    Console.WriteLine($"Public ip: {host.AddressList[1]}");
-    Console.WriteLine($"Addre Mac: {host.AddressList[2]}");
-
-    foreach (var ip in host.AddressList)
+    try
     {
-      if (ip.AddressFamily == AddressFamily.InterNetwork)
-      {
-        return $"Local ip: {ip.ToString()}";
-      }
-    }
+      var host = Dns.GetHostEntry(Dns.GetHostName());
 
-    return "";
+      Console.WriteLine($"Local  ip: {host.AddressList[0]}");
+      Console.WriteLine($"Public ip: {host.AddressList[1]}");
+      Console.WriteLine($"Addre Mac: {host.AddressList[2]}");
+      foreach (var ip in host.AddressList)
+      {
+        if (ip.AddressFamily == System.Net.Sockets.AddressFamily.InterNetwork)
+        {
+          return $"Local ip: {ip}";
+        }
+      }
+      return "No network adapters with an IPv4 address in the system!";
+    }
+    catch (Exception e)
+    {
+      return $"Unable to get local IP address. {e.Message}"; ;
+    }
   }
 
   public static async Task<List<(string ipAddress, string hostName)>> GetAllIpAddressesAndHostnamesAsync(
@@ -63,8 +68,6 @@ public class LanIpScanner
 
     return devices;
   }
-
-
 
   private static async Task<(string ipAddress, string hostName)> ProcessIpAsync(
       string ipAddress,
